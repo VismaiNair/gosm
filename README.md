@@ -4,7 +4,7 @@
 Gosm is a CLI wrapper for the Go Wasm complilation tools. Instead of remembering build flags and typing in environment variables, you only need to run simple commands.
 
 ## Installing Gosm
-To learn how to install Gosm, please take a look at the quickstart guide.
+To learn how to install Gosm, please take a look at [the quickstart guide](QUICKSTART.md). 
 
 ## Commands
 
