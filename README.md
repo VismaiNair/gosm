@@ -20,5 +20,11 @@ __Example Usage__
 `gosm js` copies the required JS file from your go installation, `wasm_exec.js`. It is required to run any WASM.
 
 __Example Usage__
+1. Copy `wasm_exec.js`: `gosm js`
+
+### `gosm run`
+`gosm run` serves the static WASM files and HTML file over a webserver.
+
+__Example Usage__
 1. Copy the JS file into the current directory: ```gosm js```
 
