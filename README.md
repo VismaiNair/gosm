@@ -26,5 +26,9 @@ __Example Usage__
 `gosm run` serves the static WASM files and HTML file over a webserver.
 
 __Example Usage__
+1. Run on https://localhost:8080: `gosm run`
+2. Run with specified port (we use 8000 as an example): `gosm run --port 8080`
+
+__Example Usage__
 1. Copy the JS file into the current directory: ```gosm js```
 
