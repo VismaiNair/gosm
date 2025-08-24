@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// FindVersion finds the Go installation version and returns it as a semantic version string.
+// It returns an error if Go is not found or if the version command fails.
 func FindVersion() (string, error) {
 	version, err := exec.Command("go", "version").Output() // Finds the version of Go, but as a string with other elements
 
