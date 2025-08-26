@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/vismainair/gosm/cmd"
+	"github.com/vismainair/wasmate/cmd"
 )
 
 func main() {

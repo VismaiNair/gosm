@@ -1,6 +1,7 @@
-# Gosm - Quickstart Guide
+# wasmate - Quickstart Guide
 
 A simple CLI tool that streamlines Go WebAssembly development by handling the build process, runtime setup, and local testing.
+For thorough installation and uninstallation directions, please take a look at [the install directions](INSTALL.md).
 
 ## 🚀 5-Minute Setup
 
@@ -11,7 +12,7 @@ A simple CLI tool that streamlines Go WebAssembly development by handling the bu
 ### Installation
 
 ```bash
-go install github.com/vismainair/gosm@latest
+go install github.com/vismainair/wasmate@latest
 ```
 
 ## 📖 Your First WASM App
@@ -80,13 +81,13 @@ Create `index.html`:
 ### Step 5: Build and Run
 ```bash
 # Copy the JavaScript runtime
-gosm js
+wasmate js
 
 # Build your Go code to WebAssembly
-gosm build
+wasmate build
 
 # Start the development server
-gosm serve
+wasmate serve
 ```
 
 **That's it!** Open your browser to `http://localhost:8080` and see your Go code running in the browser!

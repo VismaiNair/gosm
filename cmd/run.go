@@ -15,7 +15,7 @@ var port int
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "gosm run serves all static files over a webserver.",
+	Short: "wasmate run serves all static files over a webserver.",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		open, _ := cmd.Flags().GetBool("open")

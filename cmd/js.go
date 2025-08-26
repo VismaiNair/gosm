@@ -7,9 +7,9 @@ import (
 	"path/filepath" // Work with file paths
 	"strings"       // Deal with strings
 
-	"github.com/spf13/cobra" // Importing the Cobra library for CLI apps
-	"github.com/vismainair/gosm/envdetect"
-	"golang.org/x/mod/semver" // The semver library by Golang for comparing different versions
+	"github.com/spf13/cobra"                  // Importing the Cobra library for CLI apps
+	"github.com/vismainair/wasmate/envdetect" // envdetect (part of wasmate) for go environment detection
+	"golang.org/x/mod/semver"                 // The semver library by Golang for comparing different versions
 )
 
 func copyFile(src, dst string) error {
@@ -36,7 +36,7 @@ func copyFile(src, dst string) error {
 var jsCmd = &cobra.Command{
 	Use:   "js",
 	Short: "Copies wasm_exec.js from Go installation so that WASM can be executed.",
-	Long:  `The command gosm js copies wasm_exec.js from your go installation. This is required for running WASM modules in the browser if they were compiled from Go or Node.js on your machine.`,
+	Long:  `The command wasmate js copies wasm_exec.js from your go installation. This is required for running WASM modules in the browser if they were compiled from Go or Node.js on your machine.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		goroot, gorootErr := envdetect.FindGOROOT()
 		if gorootErr != nil {

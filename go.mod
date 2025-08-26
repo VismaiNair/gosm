@@ -1,4 +1,4 @@
-module github.com/vismainair/gosm
+module github.com/vismainair/wasmate
 
 go 1.24.4
 

@@ -6,6 +6,7 @@ import (
 )
 
 // FindGOROOT finds the Go installation directory, which is also known as the GOROOT.
+// Returns the string of the filepath of the GOROOT and any errors.
 func FindGOROOT() (string, error) {
 	goroot, gorootErr := exec.Command("go", "env", "GOROOT").Output() // Finds the directory of the Go installation (GOROOT)
 
