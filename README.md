@@ -1,34 +1,74 @@
-# wasmate
+# `wasmate`
+A CLI tool to simplify Go WebAssembly development.
 
-## What is wasmate?
-wasmate is a CLI wrapper for the Go Wasm complilation tools. Instead of remembering build flags and typing in environment variables, you only need to run simple commands.
+Are you tired of remembering long Go commands and complex flags just to build a simple WebAssembly project? wasmate is a CLI wrapper that handles all the hassle for you. It simplifies the entire workflow, letting you build, run, and manage your Go Wasm applications with just a few intuitive commands.
 
-## Installing wasmate
-To learn how to install wasmate, please take a look at [the quickstart guide](QUICKSTART.md). 
+## Why Use `wasmate`?
+No More Flags: Stop memorizing `GOOS=js GOARCH=wasm go build`. Just run `wasmate build`.
+
+- __Simple Workflow__: Go from Go source code to a running web server in three easy steps.
+
+- __Built for Developers__: Focus on writing your code, not on wrestling with the build system.
+
+## Getting Started
+To get up and running, check out our [Quickstart Guide](QUICKSTART.md) for installation and your first project. For detailed installation and uninstallation instructions, take a look at the [Install Guide](INSTALL.md).
 
 ## Commands
-
 ### `wasmate build`
-`wasmate build` builds Go code to WASM binary format. You can specify either a directory or a go file to build.
+Compiles your Go source code into a WebAssembly (.wasm) binary.
 
-__Example Usage__
-1. Build all Go files in the current directory: ```wasmate build```
-2. Build all Go files in a specified directory: ```wasmate build lib```
-3. Build a specified Go file: ```wasmate build main.go```
+__Examples:__
+
+- Compile all Go files in the current directory: 
+```
+wasmate build
+```
+
+- Compile a specific file or directory:
+```
+wasmate build main.go
+```
+```
+wasmate build ./path/to/my/project
+```
+
+- Compile to a specific output:
+```
+wasmate build --output main.wasm
+```
+```
+wasmate build -o main.wasm
+```
+```
+wasmate build ./path/to/my/project -o main.wasm
+```
 
 ### `wasmate js`
-`wasmate js` copies the required JS file from your go installation, `wasm_exec.js`. It is required to run any WASM.
+Copies the required wasm_exec.js file from your Go installation. This file is essential for running WebAssembly in a web browser.
 
-__Example Usage__
-1. Copy `wasm_exec.js`: `wasmate js`
+__Example:__
+
+- Copy the file to your current directory:
+
+```
+wasmate js
+```
 
 ### `wasmate run`
-`wasmate run` serves the static WASM files and HTML file over a webserver.
+Serves your HTML and WebAssembly files over a local web server, making it easy to test your application.
 
-__Example Usage__
-1. Run on https://localhost:8080: `wasmate run`
-2. Run with specified port (we use 8000 as an example): `wasmate run --port 8080`
+__Examples:__
 
-__Example Usage__
-1. Copy the JS file into the current directory: ```wasmate js```
+- Start the server on the default port (8080):
+```
+wasmate run
+```
 
+- Specify a different port:
+
+```
+wasmate run --port 8000
+```
+```
+wasmate run -p 8000
+```
