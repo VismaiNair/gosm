@@ -5,12 +5,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/pkg/browser"
+	"github.com/vismainair/wasmate/browser"
 
 	"github.com/spf13/cobra"
 )
 
 var port int
+var open bool
 
 // runCmd represents the run command
 var runCmd = &cobra.Command{
@@ -18,18 +19,19 @@ var runCmd = &cobra.Command{
 	Short: "wasmate run serves all static files over a webserver.",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		open, _ := cmd.Flags().GetBool("open")
 
 		fs := http.FileServer(http.Dir("."))
 		http.Handle("/", fs)
+
+		if open {
+			browser.Open(fmt.Sprintf("http://localhost:%d", port))
+			fmt.Fprintf(os.Stdout, "Opening the file in your browser")
+		}
 		fmt.Fprintf(os.Stdout, "The WASM static webserver is starting on http://localhost:%d\n", port)
 		fmt.Fprintf(os.Stdout, "Press Ctrl+C or Command+C to stop the server.")
 		err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
 		if err != nil {
 			return fmt.Errorf("failed to start server: %w", err)
-		}
-		if open {
-			browser.OpenURL(fmt.Sprintf("http://localhost:%d", port))
 		}
 
 		return nil
@@ -39,6 +41,7 @@ var runCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(runCmd)
 	runCmd.Flags().IntVarP(&port, "port", "p", 8080, "The port to run the web server on")
+	runCmd.Flags().BoolVarP(&open, "open", "o", false, "Open the app on the default browser")
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
