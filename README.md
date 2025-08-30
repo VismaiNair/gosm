@@ -43,6 +43,8 @@ wasmate build -o main.wasm
 wasmate build ./path/to/my/project -o main.wasm
 ```
 
+You may add whichever flags you would like to use and use them within the same command, as long as you separate them with spaces.
+
 ### `wasmate js`
 Copies the required wasm_exec.js file from your Go installation. This file is essential for running WebAssembly in a web browser.
 
@@ -72,3 +74,16 @@ wasmate run --port 8000
 ```
 wasmate run -p 8000
 ```
+
+- Open localhost link in your browser"
+
+```
+wasmate run --open
+```
+
+```
+wasmate run -o
+```
+
+
+You may add whichever flags you would like to use and use them within the same command, as long as you separate them with spaces.
